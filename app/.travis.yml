@@ -1,39 +1,24 @@
 language: php
 
-dist: trusty
-
-sudo: false
-
 php:
-  - 5.6
-  - 7.0
-  - 7.1
   - 7.2
 
-matrix:
-  fast_finish: true
+cache:
+  directories:
+  - vendor
+  - $HOME/.composer/cache
 
-  global:
-    - DEFAULT=1
+env:
+  - DATABASE_TEST_URL=mysql://root:@127.0.0.1/test
 
-  include:
-    - php: 7.0
-      env: PHPCS=1 DEFAULT=0
+before_install:
+  - cd app
 
-    - php: 7.1
-      env: PHPSTAN=1 DEFAULT=0
+install:
+  - composer install --prefer-dist --no-interaction
 
 before_script:
-  - if [[ $PHPCS = 1 ]]; then composer require cakephp/cakephp-codesniffer:~2.1; fi
-  - if [[ $DEFAULT = 1 ]]; then composer install; fi
-  - if [[ $DEFAULT = 1 ]]; then composer require phpunit/phpunit:"^5.7|^6.0"; fi
-  - if [[ $DEFAULT = 1 ]]; then composer run-script post-install-cmd --no-interaction; fi
-  - if [[ $PHPSTAN = 1 ]]; then composer require --dev "phpstan/phpstan"; fi
+  - mysql -u root -e 'CREATE DATABASE test;'
 
 script:
-  - if [[ $DEFAULT = 1 ]]; then vendor/bin/phpunit; fi
-  - if [[ $PHPCS = 1 ]]; then vendor/bin/phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests ./config ./webroot; fi
-  - if [[ $PHPSTAN = 1 ]]; then vendor/bin/phpstan analyse -l 5 src; fi
-
-notifications:
-  email: false
+  - composer check
