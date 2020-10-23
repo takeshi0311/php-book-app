@@ -184,10 +184,10 @@ class QuestionsControllerTest extends IntegrationTestCase
      *
      * @return void
      */
-    public function testDelete()
-    {
-        $this->markTestIncomplete('Not implemented yet .');
-    }
+    // public function testDelete()
+    // {
+    //     $this->markTestIncomplete('Not implemented yet .');
+    // }
 
     /**
      * 認証情報のセットを行うヘルパー

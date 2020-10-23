@@ -9,7 +9,7 @@ cache:
   - $HOME/.composer/cache
 
 env:
-  - DATABASE_TEST_URL=mysql://root:@127.0.0.1/test
+  - DATABASE_TEST_URL=null
 
 before_install:
   - cd app
