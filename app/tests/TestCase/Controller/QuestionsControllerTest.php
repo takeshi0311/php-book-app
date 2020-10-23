@@ -180,7 +180,7 @@ class QuestionsControllerTest extends IntegrationTestCase
 
 
     /**
-     * 質問削除機能のテスト
+     * 質問削除機能のテストtesuto
      *
      * @return void
      */
