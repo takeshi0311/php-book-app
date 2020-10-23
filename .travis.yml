@@ -19,6 +19,7 @@ install:
 
 before_script:
   - mysql -u root -p 'CREATE DATABASE test;'
+  
 
 script:
   - composer check
