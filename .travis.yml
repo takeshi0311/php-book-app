@@ -18,6 +18,7 @@ install:
   - composer install --prefer-dist --no-interaction
 
 before_script:
+  - sudo mysql.server start
   - mysql -u root --execute='CREATE DATABASE test;'
 
 
