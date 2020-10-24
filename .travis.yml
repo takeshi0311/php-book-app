@@ -1,3 +1,5 @@
+sudo: required
+
 language: php
 
 php:
@@ -18,7 +20,7 @@ install:
   - composer install --prefer-dist --no-interaction
 
 before_script:
-  - sudo mysql -u root -e 'CREATE DATABASE test;'
+  - mysql -u root -e 'CREATE DATABASE test;'
 
 
 script:
