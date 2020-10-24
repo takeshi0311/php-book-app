@@ -298,7 +298,7 @@ return [
             'persistent' => false,
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
+            'username' => 'root',
             'password' => 'secret',
             'database' => 'test_myapp',
             //'encoding' => 'utf8mb4',
