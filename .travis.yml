@@ -18,7 +18,7 @@ install:
   - composer install --prefer-dist --no-interaction
 
 before_script:
-  - mysql -u root --execute='CREATE DATABASE_TEST_URL;'
+  - sudo mysql -u root -e 'CREATE DATABASE test;'
 
 
 script:
