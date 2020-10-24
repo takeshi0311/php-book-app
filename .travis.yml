@@ -9,12 +9,12 @@ cache:
   - $HOME/.composer/cache
 
 env:
-  - DATABASE_TEST_URL=null
+  - DATABASE_TEST_URL=mysql://root:@127.0.0.1/test
 
 before_script:
   - cd app
   - composer install --prefer-dist --no-interaction
-  - mysql -u root -e 'CREATE DATABASE test;'
+  - mysql -u root -e 'CREATE DATABASE DATABASE_TEST_URL;'
 
 script:
   - vendor/bin/phpunit
