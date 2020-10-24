@@ -307,7 +307,7 @@ return [
             'quoteIdentifiers' => false,
             'log' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
-            'url' => env('DATABASE_TEST_URL', null),
+            'url' => env('DATABASE_TEST_URL', 'mysql://root:@127.0.0.1/test'),
         ],
     ],
 
