@@ -18,7 +18,8 @@ install:
   - composer install --prefer-dist --no-interaction
 
 before_script:
-  - mysql -u root --execute="SET PASSWORD FOR 'root'@'localhost' = PASSWORD('secret');"
+  - mysql -u root --execute='CREATE DATABASE test;'
+
 
 script:
   - composer check
