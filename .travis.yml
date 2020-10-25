@@ -14,7 +14,7 @@ env:
 before_script:
   - cd app
   - composer install --prefer-dist --no-interaction
-  - mysql -u root -e 'CREATE DATABASE test;'
+  - mysql -uroot -psecret -hlocalhost 
 
 script:
   - vendor/bin/phpunit
